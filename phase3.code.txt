@@ -1,0 +1,25 @@
+from sklearn.tree import DecisionTreeClassifier
+import pandas as pd
+
+# Sample data: temperature, humidity, wind speed, seismic activity
+data = {
+    'Temperature': [35, 28, 40, 22, 18, 33, 10],
+    'Humidity': [80, 65, 20, 90, 95, 30, 70],
+    'WindSpeed': [20, 15, 35, 10, 5, 12, 9],
+    'SeismicActivity': [0.1, 0.2, 0.0, 5.5, 6.0, 0.0, 4.5],
+    'Disaster': ['Heatwave', 'Storm', 'Wildfire', 'Earthquake', 'Earthquake', 'Wildfire', 'Earthquake']
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Features and Labels
+X = df[['Temperature', 'Humidity', 'WindSpeed', 'SeismicActivity']]
+y = df['Disaster']
+
+# Train model
+model = DecisionTreeClassifier()
+model.fit(X, y)
+
+# Predicting a new scenario
+test_data = pd.DataFrame([[…
